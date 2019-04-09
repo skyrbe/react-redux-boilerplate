@@ -1,0 +1,59 @@
+/*form starts*/
+
+.error {
+  color: red; }
+
+.form-control.form-control-custom-addon-left {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.form-control.form-control-custom-addon-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: #FFF; }
+
+.btn {
+  height: 52px;
+  line-height: 52px;
+  padding-top: 0;
+  padding-right: 20px;
+  padding-bottom: 0;
+  padding-left: 20px;
+  font-size: 16px;
+  border: 0; }
+
+.btn-primary {
+  /* font-weight: 400 !important; */
+  letter-spacing: 0.07px; }
+  .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    box-shadow: none;
+    border: 0;
+    outline: 0; }
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.rw-widget-picker {
+  height: 52px;
+  border-radius: 2px !important;
+}
+
+.rw-widget-picker input[type="text"] {
+  height: 50px;
+}
+
+.custom-label-date {
+  font-size: 10px;
+  top: 30px;
+  font-weight: 100;
+  color: #717171;
+  pointer-events: none;
+  transition: all ease 0.2s;
+  z-index: 1500;
+  margin-left: 15px; }
+
+/*form styles end*/

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import superagent from 'superagent';
 import { APIConfig } from '../constants';
 
@@ -7,9 +9,9 @@ const ENDPOINTS = APIConfig.endpoints;
 
 function formatUrl(path) {
   let mappedEndpoint = ENDPOINTS[path];
-  if(path.indexOf('/') !== -1) {
-    mappedEndpoint = "";
-    let splitPathArray = path.split('/');
+  if (path.indexOf('/') !== -1) {
+    mappedEndpoint = '';
+    const splitPathArray = path.split('/');
     mappedEndpoint += ENDPOINTS[splitPathArray[0]]+'/';
     splitPathArray.shift();
     mappedEndpoint += splitPathArray.join('/')
@@ -29,7 +31,7 @@ export default class ApiClient {
           let splitPathArray = fakePath.split('/');
           splitPathArray.shift();
           let constructedURL = splitPathArray.join('/');
-          request = superagent[method](`http://localhost:3004/${constructedURL}`);
+          request = superagent[method](`http://localhost:3004/${constructedURL}`).withCredentials();
         }
         if (params) {
           request.query(params);
@@ -55,7 +57,14 @@ export default class ApiClient {
           request.send(data);
         }
 
-        request.end((err, { body } = {}) => (err ? reject(body || err) : resolve(body)));
+        request.end( (err, response = {}) => {
+          if (err) {
+            reject(response.body || err);
+          }
+          else {
+            resolve(JSON.parse(decodeURIComponent(response.text)));
+          }
+        });
       });
     });
   }

@@ -1,0 +1,7 @@
+.bannerHeader {
+    composes: color-banner fw-500 fs-26 from "../../../scss/global.css";
+}
+
+.bannerSubheader {
+    composes: color-banner fw-normal fs-18 mt-10 mb-1 from "../../../scss/global.css";
+}

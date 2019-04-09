@@ -3,12 +3,58 @@
     {
       "id": 2,
       "name": "testBusiness2",
-      "location": "Bengaluru"
+      "location": "Bengaluru",
+      "userType": "2",
+      "agree": true,
+      "annualIncome": "Please select an option",
+      "date": "27/07/2018",
+      "yearRange": [
+        2020,
+        2040
+      ],
+      "age": "4",
+      "single": {
+        "label": "14-18",
+        "value": "2"
+      },
+      "multi": [],
+      "search": [],
+      "disable": [
+        {
+          "label": ">23",
+          "value": "3"
+        }
+      ],
+      "async": [
+        {
+          "id": 1,
+          "label": "1",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": 3,
       "name": "testBusiness3",
-      "location": "Bengaluru"
+      "location": "Bengaluru",
+      "agree": false
+    }
+  ],
+  "options": [
+    {
+      "id": 1,
+      "label": "1",
+      "value": "1"
+    },
+    {
+      "id": 2,
+      "label": "2",
+      "value": "2"
+    },
+    {
+      "id": 3,
+      "label": "3",
+      "value": "3"
     }
   ]
 }

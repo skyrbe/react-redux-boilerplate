@@ -1,0 +1,34 @@
+.selectContainer {
+  composes: position-relative from '@scss/global.css';
+  height: 52px;
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 0 12px;
+  border: 1px solid #ced4da;
+}
+
+.selectLabel {
+  composes: fs-10 fw-100 from '@scss/global.css';
+  top: 8px;
+  left: 12px;
+  color: #717171;
+  pointer-events: none;
+  transition: all ease 0.2s;
+  position: absolute; }
+
+select.formControl {
+  height: 20px;
+  padding: 0;
+  border: 0;
+  margin-left: 0px;
+  margin-right: -10px;
+  width: 100%;
+  position: relative;
+  background: url('@assets/images/dropdown.png') no-repeat right #FFF;
+  top: 25px;
+  -webkit-appearance: none;
+  cursor: pointer; }
+
+.dropdownError {
+  margin-top: 5px;
+  margin-left: -13px; }

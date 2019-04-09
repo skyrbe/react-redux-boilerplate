@@ -1,0 +1,31 @@
+$theme-colors: (
+  "primary": #EF6C00,
+  "secondary": #517085,
+  "danger": #ff4136,
+  "blue": #517085
+);
+$body-bg: #fcfcfc !default;
+$body-color: #616162 !default;
+
+$input-border-radius: 3px !default;
+$input-border-color: #dbd9d8;
+$input-height-inner: 38px !default;
+$input-bg:  #fff !default;
+$input-padding-x: 10px !default;
+$input-placeholder-color: #bbbbbb !default;
+$label-margin-bottom: 10px !default;
+$input-color: #616162 !default;
+
+/*styles for buttons begin*/
+$btn-border-radius: 3 !default;
+$btn-border-width: 0 !default;
+$btn-padding-y:               0 !default;
+$btn-padding-x:               25px !default;
+$btn-line-height:             1 !default;
+/*styles for button end*/
+
+/*Styles for nav begin*/
+$navbar-light-color:                #595a5c !default;
+$navbar-light-hover-color:          #595a5c !default;
+$navbar-light-active-color:         #595a5c !default;
+/*Styles for nav end*/

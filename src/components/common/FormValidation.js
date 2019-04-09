@@ -1,0 +1,15 @@
+export const required = (value) => { return value ? undefined : 'is Required!'; };
+export const requiredRadio = (value) => { return value ? undefined : ''; };
+export const requiredReactSelect = (value) => { return (value.length > 0) ? undefined : 'is Required!'; };
+export const number = (value) => { return value && Number.isNaN(Number(value)) ? ' ' : undefined; };
+export const maxLength = max => (value) => { return value && value.length > max ? ' ' : undefined; };
+export const minLength = min => (value) => { return value && value.length < min ? ' ' : undefined; };
+export const minLength8 = minLength(8);
+export const maxLength15 = maxLength(15);
+export const noSpecialCharacterNoNumber = (value) => { return value && !/^[a-zA-Z ]*$/i.test(value) ? ' ' : undefined; };
+export const noSpecialCharacter = (value) => { return value && !/^[0-9a-zA-Z ]*$/i.test(value) ? ' ' : undefined; };
+export const mobileNumber = (value) => { return value && !/^\d{10}$/i.test(value) ? ' ' : undefined; };
+export const email = (value) => { return value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? ' ' : undefined; };
+export const userFullName = (value) => { return value && !/^[A-Za-z]{1}[A-Za-z ]{0,68}[A-Za-z]{1}$/i.test(value) ? ' ' : undefined; };
+export const password = (value) => { return value && !/^(?=.*[0-9a-zA-Z])\S{6,}$/i.test(value) ? ' ' : undefined; };
+export const mobileAndEmail = (value) => { return value && !(/^\d{10}$/i.test(value) || /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) ? ' ' : undefined; };

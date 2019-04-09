@@ -7,14 +7,14 @@ import ActiveUser from '../activeUser'
 const App = () => (
   <div className="container">
     <header>
-      <Link to="/">Users</Link>
-      <Link to="/about-us">About</Link>
+      <Link to={`${process.env.PUBLIC_URL}/`}>Users</Link>
+      <Link to={`${process.env.PUBLIC_URL}/about-us`}>About</Link>
     </header>
 
     <main>
-      <Route exact path="/" component={Users} />
-      <Route path="/users/:id" component={ActiveUser} />
-      <Route exact path="/about-us" component={About} />
+      <Route exact path={`${process.env.PUBLIC_URL}/`} component={Users} />
+      <Route path={`${process.env.PUBLIC_URL}/users/:id`} component={ActiveUser} />
+      <Route exact path={`${process.env.PUBLIC_URL}/about-us`} component={About} />
     </main>
   </div>
 )
