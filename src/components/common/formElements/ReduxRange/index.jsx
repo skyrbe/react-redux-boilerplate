@@ -1,30 +1,25 @@
 /* eslint-disable */
 
-import React, { Component, Fragment } from 'react';
+import React, { Component, useState } from 'react';
 import { Field } from 'redux-form';
 import InputRange from 'react-input-range';
-import styles from './ReduxRange.css';
+import styles from './ReduxRange.module.css';
 
 // RangeSlider
-class RenderInputRange extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      value: { min: 2, max: 10 },
-    };
-  }
+const RenderInputRange = (props) => {
+  const [state, setState] = useState({
+    value: { min: 2, max: 10 }
+  });
 
-  render() {
-    return (
-      <InputRange
-        maxValue={20}
-        minValue={0}
-        value={this.state.value}
-        onChange={value => this.setState({ value })}
-      />
-    );
-  }
+  return (
+    <InputRange
+      maxValue={20}
+      minValue={0}
+      value={this.state.value}
+      onChange={value => setState({ value })}
+    />
+  );
 }
 
 const ReduxRange = (props) => {

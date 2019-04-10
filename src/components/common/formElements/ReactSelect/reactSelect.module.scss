@@ -1,0 +1,16 @@
+.selectedOptions {
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  padding: 8px 12px;
+}
+
+.focusedOption {
+  composes: bg-orange clr-white from '@scss/global.css';
+  transition: background-color  0.1s ease-in;
+}
+
+.notFocusedOption {
+  composes: bg-transparent from '@scss/global.css';
+  transition: background-color  0.1s ease-out;
+}

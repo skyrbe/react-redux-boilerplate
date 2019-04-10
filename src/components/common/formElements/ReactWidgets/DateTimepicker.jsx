@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
+// import dateFnsLocalizer from 'react-widgets-date-fns';
 import 'react-widgets/dist/css/react-widgets.css';
+import FormValidationMessages from '@components/common/FormValidationMessages';
+import * as availableLanguages from '@localization';
 
 moment.locale('en');
 momentLocalizer();
+// dateFnsLocalizer();
 
 const renderDateTimePicker = ({
   input: { onChange, value },
@@ -15,7 +20,8 @@ const renderDateTimePicker = ({
   minDate,
   disabled,
   meta: { touched, error },
-  label
+  label,
+  language
 }) => {
   let dateObject;
   if (value && value.toString().indexOf('/') !== -1) {
@@ -27,8 +33,9 @@ const renderDateTimePicker = ({
   } else {
     dateObject = new Date(value);
   }
+  const CONSTANTS = availableLanguages[language];
   return (
-    <div>
+    <Fragment>
       <label className="position-relative custom-label-date">
         {label}
       </label>
@@ -43,32 +50,33 @@ const renderDateTimePicker = ({
         disabled={disabled}
       />
       {touched
-      && error
-      && (
-        <small className="error">
-          Date
-          {error}
-        </small>
+        && error && (
+          <small className="error">
+            {CONSTANTS.DATE}
+            {FormValidationMessages[language][error]}
+          </small>
       )}
-    </div>
+    </Fragment>
   );
 };
+
+function mapStateToProps({ localization }) {
+  return {
+    language: localization.language
+  };
+}
+
+const ConnectedRenderField = connect(mapStateToProps)(renderDateTimePicker);
+
 const DateTimepicker = (props) => {
   const {
-    name,
-    showTime,
-    validate,
-    maxDate,
-    minDate,
-    disabled,
-    label,
-    onChange,
+    name, showTime, validate, maxDate, minDate, disabled, label, onChange
   } = props;
   return (
     <Field
       name={name}
       showTime={showTime}
-      component={renderDateTimePicker}
+      component={ConnectedRenderField}
       validate={validate}
       maxDate={maxDate}
       minDate={minDate}

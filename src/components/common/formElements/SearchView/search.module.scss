@@ -1,0 +1,31 @@
+.inputAddOnItem {
+  border-radius: 5px 0 0 5px;
+  border: 1px solid;
+  composes: border-color-light-gr from '@scss/global.css';
+  border-width: 1px 0 1px 1px;
+}
+
+.customInput {
+  border-radius: 0 5px 5px 0;
+  border-width: 1px 1px 1px 0;
+
+  &:focus {
+    border-color: #dbd9d8;
+  }
+}
+
+.customInputSubmit {
+  composes: border-radius-0 from '@scss/global.css';
+  border-width: 1px 0 1px 0;
+
+  &:hover {
+    border-color: #dbd9d8;
+  }
+}
+
+.inputAppendItem {
+  border-radius: 0 5px 5px 0;
+  border: 1px solid;
+  composes: border-color-light-gr background-white from '@scss/global.css';
+  border-width: 1px 1px 1px 0;
+}

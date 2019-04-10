@@ -5,15 +5,10 @@ import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 import { APP_CONFIG } from '@constants';
 
-const logout = () => {
-  window.localStorage.removeItem('userData');
-  this.props.history.push(`${APP_CONFIG.BASE_URL}/login`);
-};
-
 const Header = () => {
-  const userData = JSON.parse(window.localStorage.getItem('userData'));
+  const userData = JSON.parse(window.localStorage.getItem('userData') || {});
   let name = '';
-  if (userData !== undefined && userData !== null) {
+  if (userData && userData !== null) {
     name = userData.name !== undefined ? userData.name : 'user';
   } else {
     name = 'user';

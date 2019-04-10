@@ -1,19 +1,25 @@
-/*form starts*/
+/* form starts */
 
 .error {
-  color: red; }
+  color: red;
+}
 
 .form-control.form-control-custom-addon-left {
   border-right: 0;
   border-top-right-radius: 0;
-  border-bottom-right-radius: 0; }
+  border-bottom-right-radius: 0;
+}
 
 .form-control.form-control-custom-addon-right {
   border-top-left-radius: 0;
-  border-bottom-left-radius: 0; }
+  border-bottom-left-radius: 0;
+}
 
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-  background-color: #FFF; }
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: #fff;
+}
 
 .btn {
   height: 52px;
@@ -23,15 +29,21 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   padding-bottom: 0;
   padding-left: 20px;
   font-size: 16px;
-  border: 0; }
+  border: 0;
+}
 
 .btn-primary {
   /* font-weight: 400 !important; */
-  letter-spacing: 0.07px; }
-  .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-    box-shadow: none;
-    border: 0;
-    outline: 0; }
+  letter-spacing: 0.07px;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  box-shadow: none;
+  border: 0;
+  outline: 0;
+}
 
 .form-group {
   margin-bottom: 30px;
@@ -54,6 +66,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   pointer-events: none;
   transition: all ease 0.2s;
   z-index: 1500;
-  margin-left: 15px; }
+  margin-left: 15px;
+}
 
-/*form styles end*/
+/* form styles end */

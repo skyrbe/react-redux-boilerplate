@@ -27,7 +27,7 @@ class Register extends Component {
   /* state will be changed if user has already filled the form
   * and clicked on back button to manipulate some information
   */
-  componentWillMount = () => {
+  componentDidMount = () => {
     if (this.props.userinfo !== null) {
       const data = this.props.userinfo;
       data.password = '';

@@ -1,21 +1,19 @@
-.welcomePage{
+.welcomePage {
   margin-top: 90px;
   margin-bottom: 230px;
-  padding-top: 30px;
-  padding-bottom: 30px;
   background-color: white;
   border-radius: 5px;
-  padding: 20px;
+  padding: 30px 20px;
   transition: all 0.2s ease;
   box-shadow: none;
   border: 1px solid rgba(107, 207, 153, 0.27);
 }
 
-.welcomePage:hover{
-  box-shadow: 0px 0px 30px 0px rgba(46, 130, 75, 0.18);
+.welcomePage:hover {
+  box-shadow: 0 0 30px 0 rgba(46, 130, 75, 0.18);
 }
 
-.welcomeText{
+.welcomeText {
   line-height: 1.5;
   color: #6bcf99;
 }

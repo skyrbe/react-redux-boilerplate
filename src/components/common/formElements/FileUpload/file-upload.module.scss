@@ -1,0 +1,13 @@
+.uploadFile {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.uploadBtnContainer {
+  padding-top: 12px;
+  composes: position-relative btn btn-secondary from '@scss/global.css';
+}

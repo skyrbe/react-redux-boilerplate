@@ -11,7 +11,8 @@ const SelectBox = (props) => {
     options,
     defaultLabel,
     validate,
-    onChange
+    onChange,
+    label
   } = props;
 
   const renderSelectField = (
@@ -50,7 +51,7 @@ const SelectBox = (props) => {
   return (
     <div className={styles.selectContainer}>
       <label className={styles.selectLabel}>
-        Annual income
+        {label}
       </label>
       <Field
         name={name}

@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Field } from 'redux-form';
+import FormValidationMessages from '@components/common/FormValidationMessages';
 
 const renderField = (props) => {
   const {
@@ -15,12 +17,23 @@ const renderField = (props) => {
     defaultChecked,
     uniqueId,
     disabled,
-    type
+    type,
+    customClass,
+    customLabelClass
   } = props;
+  let fieldClass = 'custom-control custom-checkbox ';
+  if (customClass) {
+    fieldClass = `${fieldClass} ${customClass}`;
+  }
+
+  let labelClass = 'text-muted custom-control-label';
+  if (customLabelClass) {
+    labelClass = `${labelClass} ${customLabelClass}`;
+  }
 
   return (
     <Fragment>
-      <div className="custom-control custom-checkbox">
+      <div className={fieldClass}>
         <input
           className="custom-control-input"
           {...input}
@@ -30,14 +43,13 @@ const renderField = (props) => {
           defaultChecked={defaultChecked}
           disabled={disabled}
         />
-        <label className="text-muted custom-control-label" htmlFor={uniqueId}>
+        <label className={labelClass} htmlFor={uniqueId}>
           {label}
         </label>
         {touched
           && ((error && (
             <small className="error">
-              {errorLabel}
-              {error}
+              {(error.trim() ? `${label} ${FormValidationMessages[props.language][error]}` : '') || errorLabel}
             </small>))
             || (warning && (
               <small className="error">
@@ -51,6 +63,14 @@ const renderField = (props) => {
   );
 };
 
+function mapStateToProps({ localization }) {
+  return {
+    language: localization.language
+  };
+}
+
+const ConnectedRenderField = connect(mapStateToProps)(renderField);
+
 const Textfield = (props) => {
   const {
     name,
@@ -63,7 +83,8 @@ const Textfield = (props) => {
     defaultChecked,
     onChange,
     externalLabel,
-    disabled
+    disabled,
+    customLabelClass
   } = props;
   return (
     <div>
@@ -72,7 +93,7 @@ const Textfield = (props) => {
         type="checkbox"
         value={value}
         readOnly={readOnly}
-        component={renderField}
+        component={ConnectedRenderField}
         label={label}
         errorLabel={errorLabel}
         validate={validate}
@@ -81,6 +102,7 @@ const Textfield = (props) => {
         defaultChecked={defaultChecked}
         onChange={onChange}
         disabled={disabled}
+        customLabelClass={customLabelClass}
       />
     </div>
   );

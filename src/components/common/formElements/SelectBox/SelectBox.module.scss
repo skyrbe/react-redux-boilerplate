@@ -20,11 +20,11 @@ select.formControl {
   height: 20px;
   padding: 0;
   border: 0;
-  margin-left: 0px;
+  margin-left: 0;
   margin-right: -10px;
   width: 100%;
   position: relative;
-  background: url('@assets/images/dropdown.png') no-repeat right #FFF;
+  background: url('@assets/images/dropdown.png') no-repeat right #fff;
   top: 25px;
   -webkit-appearance: none;
   cursor: pointer; }

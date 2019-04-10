@@ -65,11 +65,6 @@ const DashBoard = Loadable({
   loading: LoadingComponent,
 });
 
-const PersonalDetails = Loadable({
-  loader: () => import('@containers/PersonalDetails'),
-  loading: LoadingComponent,
-});
-
 const ForgotPassword = Loadable({
   loader: () => import('@components/ForgotPassword'),
   loading: LoadingComponent,
@@ -89,7 +84,6 @@ export default (
         <Route exact path={`${APP_CONFIG.BASE_URL}/login`} component={Login} />
         <Route exact path={`${APP_CONFIG.BASE_URL}/forgotpassword`} component={ForgotPassword} />
         <PrivateRoute exact path={`${APP_CONFIG.BASE_URL}/dashboard`} component={DashBoard} />
-        <PrivateRoute exact path={`${APP_CONFIG.BASE_URL}/personal-details`} component={PersonalDetails} />
         <Route exact path={`${APP_CONFIG.BASE_URL}/users`} component={Users} />
         <Route exact path={`${APP_CONFIG.BASE_URL}/users/:id`} component={ActiveUser} />
         <Route path="*" component={notFound} />

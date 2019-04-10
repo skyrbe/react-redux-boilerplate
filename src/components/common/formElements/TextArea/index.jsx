@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Field } from 'redux-form';
+import { connect } from 'react-redux';
+import cn from 'classnames';
+import FormValidationMessages from '@components/common/FormValidationMessages';
+import styles from '@formElements/TextField/TextField.module.css';
 
 class renderField extends Component {
   constructor(props) {
@@ -32,6 +36,7 @@ class renderField extends Component {
       name,
       type,
       readOnly,
+      placeholder,
       maxLength,
       meta: {
         touched,
@@ -39,8 +44,17 @@ class renderField extends Component {
         warning
       },
       customClass,
-      disabled
+      disabled,
+      rows,
+      autoFocus,
+      normalize,
+      customLabelCss
     } = this.props;
+
+    let requiredErrorLabel = label;
+    if (label) {
+      requiredErrorLabel = requiredErrorLabel.replace(/\*/gi, '');
+    }
 
     let fieldClass = 'form-control form-control-danger';
     if (customClass) {
@@ -48,7 +62,7 @@ class renderField extends Component {
     }
     return (
       <div className={this.state.focused || input.value !== '' ? 'pos-r input-focused' : 'pos-r input-blur'}>
-        <label className="pos-a custom-label custom-label-comment">
+        <label className={cn(styles.customLabel, customLabelCss)}>
           {label}
         </label>
         <textarea
@@ -59,12 +73,15 @@ class renderField extends Component {
           className={fieldClass}
           readOnly={readOnly}
           disabled={disabled}
+          placeholder={placeholder}
+          rows={rows}
+          autoFocus={autoFocus}
+          normalize={normalize}
         />
         {touched
           && ((error && (
             <small className="error">
-              {errorLabel}
-              {error}
+              {(error.trim() ? `${requiredErrorLabel} ${FormValidationMessages[this.props.language][error]}` : '') || errorLabel}
             </small>))
           || (warning && (
             <small className="error">
@@ -78,6 +95,14 @@ class renderField extends Component {
   }
 }
 
+function mapStateToProps({ localization }) {
+  return {
+    language: localization.language
+  };
+}
+
+const ConnectedRenderField = connect(mapStateToProps)(renderField);
+
 const Textfield = (props) => {
   const {
     name,
@@ -90,7 +115,12 @@ const Textfield = (props) => {
     customClass,
     value,
     onChange,
-    disabled
+    disabled,
+    placeholder,
+    rows,
+    autoFocus,
+    normalize,
+    customLabelCss,
   } = props;
   return (
     <div>
@@ -100,13 +130,18 @@ const Textfield = (props) => {
         value={value}
         readOnly={readOnly}
         maxLength={maxLength}
-        component={renderField}
+        component={ConnectedRenderField}
         label={label}
         errorLabel={errorLabel}
         validate={validate}
         customClass={customClass}
         onChange={onChange}
         disabled={disabled}
+        placeholder={placeholder}
+        rows={rows}
+        autoFocus={autoFocus}
+        normalize={normalize}
+        customLabelCss={customLabelCss}
       />
     </div>
   );

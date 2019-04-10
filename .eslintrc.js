@@ -7,6 +7,9 @@ module.exports = {
     'es6': true,
     'node': true,
   },
+  "plugins": [
+    "react-hooks"
+  ],
   "parser": "babel-eslint",
   'extends': [
     'airbnb',
@@ -21,7 +24,9 @@ module.exports = {
     'import/no-extraneous-dependencies' : 0,
     'jsx-a11y/label-has-for' : 0,
     'import/no-mutable-exports' : 0,
-    'import/no-unresolved': 0
+    'import/no-unresolved': 0,
+    'jsx-a11y/no-autofocus': 0,
+    'react-hooks/rules-of-hooks': 'error',
   },
   'parserOptions': {
     'ecmaFeatures': {

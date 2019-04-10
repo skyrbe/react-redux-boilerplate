@@ -88,10 +88,6 @@
     "src/**/*.{js,jsx,json}": [
       "eslint --fix"
     ],
-    "src/**/*.{scss,css}": [
-      "stylelint --config=.stylelintrc --fix",
-      "prettier --config .prettierrc --write"
-    ]
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
@@ -113,7 +109,7 @@
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.11.1",
-    "eslint-plugin-react-hooks": "^1.0.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "pre-commit": "1.2.2",
     "stylelint": "9.3.0",
     "stylelint-config-standard": "18.2.0",
