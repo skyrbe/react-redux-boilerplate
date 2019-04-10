@@ -53,7 +53,7 @@ The React bit of the seeder project is broken down in the following way.
         |-- webpack.config.prod.js
     |-- public
         |-- index.html (Do not modify unless you need to add a link to google fonts or 3rd party scripts)
-    |-- scripts (contains scripts responsible for building/running the application. Do not modify)
+    |-- scripts (contains scripts responsible for building/running the application.)
     |-- README.md (The file you are reading right now!)
     |-- package.json (All dependencies go here, so do the build scripts execution)
     |-- src
@@ -63,8 +63,8 @@ The React bit of the seeder project is broken down in the following way.
         |-- components
             |--*Form
                |--index.jsx (This file contains the reduxForm, the connect and the likes)
-               |--anyCustomCSSfile.scss
-               |--anyCustomCSSfile.css (This is auto generated)
+               |--anyCustomCSSfile.module.scss
+               |--anyCustomCSSfile.module.css (This is auto generated)
             |--common
                |--Header
                |--Footer
@@ -83,17 +83,17 @@ The React bit of the seeder project is broken down in the following way.
         |-- containers
             |-- activeUser
                 |-- index.jsx
-                |--anyCustomCSSfile.scss
-                |--anyCustomCSSfile.css (This is auto generated)
+                |--anyCustomCSSfile.module.scss
+                |--anyCustomCSSfile.module.css (This is auto generated)
             |--..
         |-- helpers
             |-- ApiClient.js (This contains the configuration for superagent, the library which makes API requests possible)
         |-- include
-            |-- bootstrap.js (imports the global css files, bootstrap JS and it's dependencies)
+            |-- bootstrap.js (imports the global css files)
             |-- ..
         |-- reducers
             |-- middleware
-                |-- clientMiddleware.js (This file is the middleman between the API requests and dispatch. Do not modify)
+                |-- clientMiddleware.js (This file is the middleman between the API requests and dispatch)
             |-- index.js (combines all the reducers)
             |-- *.js
         |-- scss
